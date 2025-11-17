@@ -4,10 +4,6 @@ from selenium.webdriver.support import expected_conditions as EC
 from locators.locatorstest import LocatorsForTest
 from testuser.existtestuser import ExistUser
 
-
-driver = webdriver.Chrome()
-driver.get("https://qa-desk.stand.praktikum-services.ru/")
-
 class TestLoginWorking:
 
     def test_exist_user_login(self, driver):
@@ -17,6 +13,5 @@ class TestLoginWorking:
        driver.find_element(*LocatorsForTest.login_button).click()
        assert WebDriverWait(driver, 5).until(EC.visibility_of_element_located(LocatorsForTest.user_avatar)).is_displayed()
        assert WebDriverWait(driver, 5).until(EC.visibility_of_element_located(LocatorsForTest.user_name)).text == 'User.'
-       driver.quit()
 
         
