@@ -5,9 +5,6 @@ from locators.locatorstest import LocatorsForTest
 from testuser.existtestuser import ExistUser
 
 
-driver = webdriver.Chrome()
-driver.get("https://qa-desk.stand.praktikum-services.ru/")
-
 class TestAdaCreation:
 
     def test_create_ads_login(self, driver):
@@ -35,14 +32,12 @@ class TestAdaCreation:
        driver.find_element(*LocatorsForTest.product_condition_used_radiobutton).click()
        driver.find_element(*LocatorsForTest.publish_button).click()
        assert WebDriverWait(driver, 5).until(EC.visibility_of_element_located(LocatorsForTest.user_ad_exist)).get_attribute(name_product)
-
-       driver.quit()
           
 
     def test_create_ads_not_login(self, driver):
         WebDriverWait(driver, 5).until(EC.element_to_be_clickable(LocatorsForTest.place_an_ad_button)).click()
         assert WebDriverWait(driver, 5).until(EC.visibility_of_element_located(LocatorsForTest.message_window)).text == "Чтобы разместить объявление, авторизуйтесь"
-        driver.quit()
+
 
 
 
