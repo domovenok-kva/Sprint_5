@@ -4,8 +4,6 @@ from selenium.webdriver.support import expected_conditions as EC
 from locators.locatorstest import LocatorsForTest
 from testuser.existtestuser import ExistUser
 
-driver = webdriver.Chrome()
-driver.get("https://qa-desk.stand.praktikum-services.ru/")
 
 class TestLogOutWorking:
 
@@ -16,6 +14,5 @@ class TestLogOutWorking:
        driver.find_element(*LocatorsForTest.login_button).click()
        driver.find_element(*LocatorsForTest.exit_button).click()
        assert WebDriverWait(driver, 5).until(EC.visibility_of_element_located(LocatorsForTest.log_and_reg_button)).text == "Вход и регистрация"
-       driver.quit()
     
     
