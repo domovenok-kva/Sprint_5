@@ -6,7 +6,7 @@ from selenium import webdriver
 def driver():
     
     driver = webdriver.Chrome()
-    
+    driver.get("https://qa-desk.stand.praktikum-services.ru/")
     driver.maximize_window()
     yield driver
     driver.quit()
