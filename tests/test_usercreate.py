@@ -37,6 +37,8 @@ class TestUserCreate:
               WebDriverWait(driver, 5).until(EC.visibility_of_element_located(LocatorsForTest.email_input_err))
               WebDriverWait(driver, 5).until(EC.visibility_of_element_located(LocatorsForTest.password_input_err))
               WebDriverWait(driver, 5).until(EC.visibility_of_element_located(LocatorsForTest.password_repit_input_err))
+
+              assert WebDriverWait(driver, 5).until(EC.visibility_of_element_located(LocatorsForTest.err_message)).text == "Ошибка"
               driver.quit()
 
        def test_exist_user_create(self, driver):
@@ -50,6 +52,8 @@ class TestUserCreate:
               WebDriverWait(driver, 5).until(EC.visibility_of_element_located(LocatorsForTest.email_input_err))
               WebDriverWait(driver, 5).until(EC.visibility_of_element_located(LocatorsForTest.password_input_err))
               WebDriverWait(driver, 5).until(EC.visibility_of_element_located(LocatorsForTest.password_repit_input_err))
+              
+              assert WebDriverWait(driver, 5).until(EC.visibility_of_element_located(LocatorsForTest.err_message)).text == "Ошибка"
               driver.quit()
 
 
